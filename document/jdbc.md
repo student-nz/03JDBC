@@ -122,7 +122,8 @@ DriverManager.registerDriver(“com.mysql.cj.jdbc.Driver“)源码分析：
 
 ```
 三种语法：
-	1. getConnection(String url)：url：访问数据库的 URL 路径
+	1. getConnection(String url)：
+		url：访问数据库的 URL 路径
 	2. getConnection(String url,Properties info)：
 		url：访问数据库的 URL 路径
 		info：是一个持久的属性集对象（通常指的是Properties），包括 user 和 password 属性
@@ -749,9 +750,7 @@ API包说明：
 ## 	1. DbUtils工具类
 
 ```
-DbUtils提供如关闭连接、装载JDBC驱动程序等常规工作的工具类，里面的所有方法都是静态的
-
-DbUtils的主要方法：
+DbUtils ：提供如关闭连接、装载JDBC驱动程序等常规工作的工具类，里面的所有方法都是静态的。主要方法如下：
 
 public static void close(…) throws java.sql.SQLException：　
 
@@ -759,35 +758,41 @@ DbUtils类提供了三个重载的关闭方法
 
 这些方法检查所提供的参数是不是NULL，如果不是的话，它们就关闭Connection、Statement和ResultSet
 
+1. public static void closeQuietly(…): 
+	这一类方法不仅能在Connection、Statement和ResultSet为NULL情况下避免关闭，还能隐藏一些在程序中抛出的SQLEeception。
 
-public static void closeQuietly(…): 
-	这一类方法不仅能在Connection、Statement和ResultSet为NULL情况下避免关闭，还能隐藏一些在程序中抛出的SQLEeception
-
-public static void commitAndClose(Connection conn)throws SQLException： 
+2. public static void commitAndClose(Connection conn)throws SQLException 
 	用来提交连接的事务，然后关闭连接
-	
-public static void commitAndCloseQuietly(Connection conn)： 
-	用来提交连接，然后关闭连接，并且在关闭连接时不抛出SQL异常。 
 
-public static void rollback(Connection conn)throws SQLException：
-	允许conn为null，因为方法内部做了判断
-	
-public static void rollbackAndClose(Connection conn)throws SQLException
-				rollbackAndCloseQuietly(Connection)
+3. public static void commitAndCloseQuietly(Connection conn)： 
+	用来提交连接的事务，然后关闭连接，并且在关闭连接时不抛出SQL异常。
 
-public static boolean loadDriver(java.lang.String driverClassName)：
+4. public static void rollback(Connection conn)throws SQLException
+		允许conn为null，因为方法内部做了判断
 
-这一方装载并注册JDBC驱动程序，如果成功就返回true。使用该方法，你不需要捕捉这个异常ClassNotFoundException
+	public static void rollbackAndClose(Connection conn)throws SQLException
+
+	rollbackAndCloseQuietly(Connection)
+
+5. public static boolean loadDriver(java.lang.String driverClassName)：
+	这一方装载并注册JDBC驱动程序，如果成功就返回true，
+	使用该方法，你不需要捕捉这个异常ClassNotFoundException
 ```
 
 ## 2. QueryRunner类
 
 ```
-QueryRunner类简单化了SQL查询，它与ResultSetHandler组合在一起使用可以完成大部分的数据库操作，能够大大减少编码量。**
+该类封装了SQL的执行，是线程安全的
+
+	1. 可以实现增、删、改、查、批处理
+
+	2. 考虑了事务处理需要共用Connection。
+
+	3. 该类最主要的就是简单化了SQL查询，它与ResultSetHandler组合在一起使用可以完成大部分的数据库操作，能够大大减少编码量
 
 QueryRunner类提供了两个构造器：
-  	1. 默认的构造器
-  	2. 需要javax.sql.DataSource来作参数的构造器
+  	1. QueryRunner()：默认的构造方法
+  	2. QueryRunner(DataSource ds)：需要一个 javax.sql.DataSource 来作参数的构造方法
 
 QueryRunner类的主要方法：
  	 1. 更新
@@ -882,7 +887,3 @@ JDBC程序中为了让多个 SQL 语句作为一个事务执行，如下操作�
 # 20. 提供一个JDBC单例封装的高效工具包
 
 ​				这个工具包，无案例演示，自我解读源代码
-
-# 21. 补充如何操作Blob
-
-​		以后操作，均查API，现学现用，现补充，其余内容本人不再提供，交给大家自行整理笔记处理
