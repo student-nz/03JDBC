@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../02jdbc_datasource_third">
+      <sourceFolder url="file://$MODULE_DIR$/../02jdbc_datasource_third/src" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="c3p0-0.9.1.2">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../03jdbc_datasource_new/lib/c3p0-0.9.1.2.jar!/" />
+          <root url="jar://$MODULE_DIR$/../03jdbc_datasource_new/lib/commons-dbutils-1.4.jar!/" />
+          <root url="jar://$MODULE_DIR$/../03jdbc_datasource_new/lib/druid-1.0.9.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="hamcrest-core-1.3 (2)">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../03jdbc_datasource_new/lib/hamcrest-core-1.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/../03jdbc_datasource_new/lib/junit-4.13.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../03jdbc_datasource_new/lib/mysql-connector-java-8.0.19.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="c3p0-0.9.1.2 (2)">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../03jdbc_datasource_third/lib/c3p0-0.9.1.2.jar!/" />
+          <root url="jar://$MODULE_DIR$/../03jdbc_datasource_third/lib/commons-dbutils-1.4.jar!/" />
+          <root url="jar://$MODULE_DIR$/../03jdbc_datasource_third/lib/druid-1.0.9.jar!/" />
+          <root url="jar://$MODULE_DIR$/../03jdbc_datasource_third/lib/hamcrest-core-1.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/../03jdbc_datasource_third/lib/junit-4.13.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/../03jdbc_datasource_third/lib/mysql-connector-java-5.1.7-bin.jar!/" />
+          <root url="jar://$MODULE_DIR$/../03jdbc_datasource_third/lib/mysql-connector-java-8.0.19.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="c3p0-0.9.1.2 (3)">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../02jdbc_datasource_third/lib/c3p0-0.9.1.2.jar!/" />
+          <root url="jar://$MODULE_DIR$/../02jdbc_datasource_third/lib/commons-dbutils-1.4.jar!/" />
+          <root url="jar://$MODULE_DIR$/../02jdbc_datasource_third/lib/druid-1.0.9.jar!/" />
+          <root url="jar://$MODULE_DIR$/../02jdbc_datasource_third/lib/hamcrest-core-1.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/../02jdbc_datasource_third/lib/junit-4.13.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/../02jdbc_datasource_third/lib/mysql-connector-java-5.1.7-bin.jar!/" />
+          <root url="jar://$MODULE_DIR$/../02jdbc_datasource_third/lib/mysql-connector-java-8.0.19.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+  </component>
+</module>
