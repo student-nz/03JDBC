@@ -688,7 +688,7 @@ DataSource dataSource = DruidDataSourceFactory.createDataSource(properties);
 | removeAbandonedTimeout     | 300    | 超过时间限制，回收没有用(废弃)的连接                         |
 | removeAbandoned            | false  | 超过removeAbandonedTimeout时间后，是否进 行没用连接（废弃）的回收 |
 
-### 3. druid.properties
+### 3. druid.properties参数清单
 
 ```java
 url=jdbc:mysql://localhost:3306/test?rewriteBatchedStatements=true
