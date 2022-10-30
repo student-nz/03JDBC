@@ -2,40 +2,36 @@
 
 # 1. 数据持久化
 
-​			数据持久化就是指将那些内存中的瞬时数据保存到存储设备中，保证即使在电脑或手机在关闭状态，这些数据仍然不会消失
+```
+数据持久化就是指将那些内存中的瞬时数据保存到存储设备中，保证即使在电脑或手机在关闭状态，这些数据仍然不会消失
 
-​			瞬时数据是指那些存储在内存当中，有可能会因为程序关闭或其他原因导致内存被回收而丢失的数据
+瞬时数据是指那些存储在内存当中，有可能会因为程序关闭或其他原因导致内存被回收而丢失的数据
+例如：将内存中的数据持久化保存到硬盘
 
-​			例如：将内存中的数据持久化保存到硬盘
-
-​			数据持久化的应用场景：
-
-​				开发中经常将内存中的数据持久化到磁盘文件、XML数据文件、数据库中等等，其中主要应用于关系型数据库中
+数据持久化的应用场景：
+	开发中经常将内存中的数据持久化到磁盘文件、XML数据文件、数据库中等等，其中主要应用于关系型数据库中
+```
 
 # 2. Java中的数据存储技术
 
-​				1.  JDBC直接访问数据库
-
-​				2.  JDO (Java Data Object )技术
-
-​				3. 第三方O/R工具，如Hibernate, Mybatis 等
-
-​				. . .	
-
-​				JDBC是java访问数据库的基石，JDO、Hibernate、MyBatis等只是更好的封装了JDBC
+```
+1.  JDBC直接访问数据库
+2.  JDO (Java Data Object )技术
+3. 第三方O/R工具，如Hibernate, Mybatis 等
+. . .	
+JDBC是java访问数据库的基石，JDO、Hibernate、MyBatis等只是更好的封装了JDBC
+```
 
 # 3. JDBC是什么？
 
-​		JDBC(Java Database Connectivity)是sun公司提供的一套用于数据库操作的接口，java程序员只需要面向这套接口编程即可
-
-​		这套接口定义了用来访问数据库的标准Java实现类类库
-​		不同的数据库厂商，针对这套接口，提供了不同的实现，即不同数据库的驱动，
-
-​		所以说JDBC就是一套规范，使用JDBC就是面向接口编程
-
-​		同时JDBC也是基于TCP/IP的应用层协议,数据的传输都是通过socket进行
-
-​		如下图详解：
+```
+JDBC(Java Database Connectivity)是sun公司提供的一套用于数据库操作的接口，java程序员只需要面向这套接口编程即可
+这套接口定义了用来访问数据库的标准Java实现类类库
+不同的数据库厂商，针对这套接口，提供了不同的实现，即不同数据库的驱动，
+所以说JDBC就是一套规范，使用JDBC就是面向接口编程
+同时JDBC也是基于TCP/IP的应用层协议,数据的传输都是通过socket进行
+如下图详解：
+```
 
 
 
@@ -46,53 +42,50 @@
 
 ## 	1. 面向应用的API
 
-​				Java API， 抽象接口，供应用程序开发人员使用（连接数据库，执行SQL语句，获得结果）
+```
+Java API， 抽象接口，供应用程序开发人员使用（连接数据库，执行SQL语句，获得结果）
+```
 
 ## 	2. 面向数据库的API
 
-​			Java Driver API，供开发商开发数据库驱动程序用
+```
+Java Driver API，供开发商开发数据库驱动程序用
+```
 
 # 5. JDBC程序编写步骤
 
-​			1.加载驱动
-
-​			2.获得连接
-
-​			3. 获得执行SQL语句的对象
-
-​			4. 编写SQL语句
-
-​			5. 执行SQL
-
-​			6. 遍历结果集
+```
+1.加载驱动
+2.获得连接
+3. 获得执行SQL语句的对象
+4. 编写SQL语句
+5. 执行SQL
+6. 遍历结果集
+```
 
 # 6. Driver详解
 
-​			java.sql.Driver 接口是所有 JDBC 驱动程序需要实现的接口，
-
-​			这个接口提供给数据库厂商使用的，不同数据库厂商提供不同的实现
-
-​			在程序中不需要直接去访问 Driver 接口的实现类，而是由驱动程序管理器类(java.sql.DriverManager)去调用这些Driver实现
-
-​			常见驱动：
-
-​				Oracle的驱动：oracle.jdbc.driver.OracleDriver	
-
-​				mySql5xx的驱动：com.mysql.jdbc.Driver
-
-​				mysql8xx的驱动：com.mysql.cj.jdbc.Driver
-
-​				. . .
+```
+java.sql.Driver 接口是所有 JDBC 驱动程序需要实现的接口，
+这个接口提供给数据库厂商使用的，不同数据库厂商提供不同的实现
+在程序中不需要直接去访问 Driver 接口的实现类，而是由驱动程序管理器类(java.sql.DriverManager)去调用这些Driver实现
+常见驱动：
+	Oracle的驱动：oracle.jdbc.driver.OracleDriver	
+	mySql5xx的驱动：com.mysql.jdbc.Driver
+	mysql8xx的驱动：com.mysql.cj.jdbc.Driver
+	. . .
+```
 
 # 7. 加载与注册驱动详解
 
 ## 	1. 加载驱动
 
-​			Class.forName(“com.mysql.jdbc.Driver”);
+```
+Class.forName(“com.mysql.jdbc.Driver”);
+Class.forName(“com.mysql.cj.jdbc.Driver”);
 
-​			Class.forName(“com.mysql.cj.jdbc.Driver”);
-
-​			加载 JDBC 驱动需调用 Class 类的静态方法 forName()，向其传递要加载的 JDBC 驱动的类名
+加载 JDBC 驱动需调用 Class 类的静态方法 forName()，向其传递要加载的 JDBC 驱动的类名
+```
 
 源码分析：
 
@@ -100,15 +93,14 @@
 
 ## 			2. 注册驱动
 
-​			DriverManager.registerDriver(“com.mysql.cj.jdbc.Driver“)
+```
+DriverManager.registerDriver(“com.mysql.cj.jdbc.Driver“)
+DriverManager 类是驱动程序管理器类，负责管理驱动程序，使用它来注册驱动
 
-​			DriverManager 类是驱动程序管理器类，负责管理驱动程序，使用它来注册驱动
-
-​		为什么不显示调用DriverManager 类的 registerDriver() 方法来注册驱动程序类的实例？
-
-​			因为 Driver 接口的驱动程序类都包含了这样一个静态代码块，
-
-​			在这个静态代码块中，会调用 DriverManager.registerDriver() 方法来注册自身的一个实例
+为什么不显示调用DriverManager 类的 registerDriver() 方法来注册驱动程序类的实例？
+	因为 Driver 接口的驱动程序类都包含了这样一个静态代码块，
+	在这个静态代码块中，会调用 DriverManager.registerDriver() 方法来注册自身的一个实例
+```
 
 ​	源码分析：
 
@@ -143,15 +135,17 @@ DriverManager.registerDriver(“com.mysql.cj.jdbc.Driver“)源码分析：
 
 # 9. JDBC URL详解
 
-​			JDBC URL就是用于标识一个被注册的驱动程序，驱动程序管理器通过这个 URL 选择正确的驱动程序，从而建立到数据库的连接
+```
+JDBC URL就是用于标识一个被注册的驱动程序，驱动程序管理器通过这个 URL 选择正确的驱动程序，从而建立到数据库的连接
+```
 
 ## 	1. JDBC URL的标准
 
-​			JDBC URL的标准由三部分组成：jdbc:子协议:子名称
-
-​			例如：jdbc:mysql://localhost:3306/test?jdbc:mysql://localhost:3306/test01?
-
-​						useSSL=false&requireSSL=false&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+```
+JDBC URL的标准由三部分组成：jdbc:子协议:子名称
+	例如：jdbc:mysql://localhost:3306/test?jdbc:mysql://localhost:3306/test01?
+	useSSL=false&requireSSL=false&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+```
 
 ```
 	协议：JDBC URL中的协议总是jdbc
