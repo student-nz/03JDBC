@@ -229,7 +229,7 @@ thin和oci的url写法上的区别：
 
 	解决方案：修改url的时区
    	  serverTimezone=GMT%2B8			北京时间东八区
-  	   serverTimezone=Asia/Shanghai	上海时间
+  	  serverTimezone=Asia/Shanghai	上海时间
    	  serverTimezone=UTC				UTC时间，注意，区分大小写，一定是大写，不可以是小写的
 
 3. rewriteBatchedStatements
