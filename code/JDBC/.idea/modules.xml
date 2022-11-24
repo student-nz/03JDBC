@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/01jdbc_enter/01jdbc_enter.iml" filepath="$PROJECT_DIR$/01jdbc_enter/01jdbc_enter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/02jdbc_datasource_third/02jdbc_datasource_third.iml" filepath="$PROJECT_DIR$/02jdbc_datasource_third/02jdbc_datasource_third.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03jdbc_datasource_myself/03jdbc_datasource_myself.iml" filepath="$PROJECT_DIR$/03jdbc_datasource_myself/03jdbc_datasource_myself.iml" />
+      <module fileurl="file://$PROJECT_DIR$/04jdbc_transaction/04jdbc_transaction.iml" filepath="$PROJECT_DIR$/04jdbc_transaction/04jdbc_transaction.iml" />
+      <module fileurl="file://$PROJECT_DIR$/05good_jdbc_utils/05good_jdbc_utils.iml" filepath="$PROJECT_DIR$/05good_jdbc_utils/05good_jdbc_utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/06test_blob/06test_blob.iml" filepath="$PROJECT_DIR$/06test_blob/06test_blob.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/JDBC.iml" filepath="$PROJECT_DIR$/.idea/JDBC.iml" />
+    </modules>
+  </component>
+</project>

@@ -2,62 +2,15 @@
 <module type="JAVA_MODULE" version="4">
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
-    <content url="file://$MODULE_DIR$/../03jdbc_datasource_myself">
-      <sourceFolder url="file://$MODULE_DIR$/../03jdbc_datasource_myself/src" isTestSource="false" />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library">
-      <library name="hamcrest-core-1.3 (2)">
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/../02jdbc_datasource/lib/hamcrest-core-1.3.jar!/" />
-          <root url="jar://$MODULE_DIR$/../02jdbc_datasource/lib/junit-4.13.1.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/../02jdbc_datasource/lib/mysql-connector-java-8.0.19.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="hamcrest-core-1.3 (2) (2)">
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/../02jdbc_myself_datasource/lib/hamcrest-core-1.3.jar!/" />
-          <root url="jar://$MODULE_DIR$/../02jdbc_myself_datasource/lib/junit-4.13.1.jar!/" />
-          <root url="jar://$MODULE_DIR$/../02jdbc_myself_datasource/lib/mysql-connector-java-8.0.19.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="hamcrest-core-1.3 (2) (3)">
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/../02jdbc_datasource_myself/lib/hamcrest-core-1.3.jar!/" />
-          <root url="jar://$MODULE_DIR$/../02jdbc_datasource_myself/lib/junit-4.13.1.jar!/" />
-          <root url="jar://$MODULE_DIR$/../02jdbc_datasource_myself/lib/mysql-connector-java-8.0.19.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="hamcrest-core-1.3 (2) (4)">
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/../03jdbc_datasource_myself/lib/hamcrest-core-1.3.jar!/" />
-          <root url="jar://$MODULE_DIR$/../03jdbc_datasource_myself/lib/junit-4.13.1.jar!/" />
-          <root url="jar://$MODULE_DIR$/../03jdbc_datasource_myself/lib/mysql-connector-java-8.0.19.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
+    <orderEntry type="library" name="lib1" level="project" />
+    <orderEntry type="library" name="lib4" level="project" />
+    <orderEntry type="library" name="lib2" level="project" />
+    <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="library" name="lib3" level="project" />
   </component>
 </module>

@@ -1,37 +1,32 @@
-# JDBC（MySQL8讲解）
+# JDBC
 
 # 1. 数据持久化
 
-```
-数据持久化就是指将那些内存中的瞬时数据保存到存储设备中，保证即使在电脑或手机在关闭状态，这些数据仍然不会消失
+​	**数据持久化**就是指将那些内存中的**瞬时数据**保存到存储设备中，保证即使在电脑或手机在关闭状态，这些数据仍然不会消失
 
-瞬时数据是指那些存储在内存当中，有可能会因为程序关闭或其他原因导致内存被回收而丢失的数据
-例如：将内存中的数据持久化保存到硬盘
+​	**瞬时数据**是指那些存储在内存当中，有可能会因为程序关闭或其他原因导致内存被回收而丢失的数据
 
-数据持久化的应用场景：
-	开发中经常将内存中的数据持久化到磁盘文件、XML数据文件、数据库中等等，其中主要应用于关系型数据库中
-```
+​	**数据持久化的应用场景：**
+
+​		开发中经常将内存中的数据持久化到磁盘文件、XML数据文件、数据库中等等，其中主要应用于关系型数据库中
 
 # 2. Java中的数据存储技术
 
-```
-1.  JDBC直接访问数据库
-2.  JDO (Java Data Object )技术
-3. 第三方O/R工具，如Hibernate, Mybatis 等
-. . .	
-JDBC是java访问数据库的基石，JDO、Hibernate、MyBatis等只是更好的封装了JDBC
-```
+  - JDBC 直接访问数据库
+  - JDO (Java Data Object )技术
+- 第三方O/R工具，如Hibernate, Mybatis 等
+  . . .	
+  其中 **JDBC **是java访问数据库的基石，JDO、Hibernate、MyBatis等只是更好的封装了JDBC
 
-# 3. JDBC是什么？
+# 3. JDBC是什么
 
-```
-JDBC(Java Database Connectivity)是sun公司提供的一套用于数据库操作的接口，java程序员只需要面向这套接口编程即可
-这套接口定义了用来访问数据库的标准Java实现类类库
-不同的数据库厂商，针对这套接口，提供了不同的实现，即不同数据库的驱动，
-所以说JDBC就是一套规范，使用JDBC就是面向接口编程
-同时JDBC也是基于TCP/IP的应用层协议,数据的传输都是通过socket进行
-如下图详解：
-```
+​	**JDBC（Java Database Connectivity）**是sun公司提供的一套用于数据库操作的接口，java程序员只需要面向这套接口编程即可
+
+​	这套接口定义了用来访问数据库的标准Java实现类类库
+
+​	不同的数据库厂商，针对这套接口，提供了不同的实现，即不同数据库的驱动，
+​	同时，**JDBC**也是基于**TCP/IP**的应用层协议,数据的传输都是通过**socket**进行
+​	如下图详解：
 
 
 
@@ -40,28 +35,164 @@ JDBC(Java Database Connectivity)是sun公司提供的一套用于数据库操作
 
 # 4. JDBC包含两个层次？
 
-## 	1. 面向应用的API
+## 	4.1. 面向应用的API
+
+​	Java API，即**抽象接口**，供应用程序开发人员使用（连接数据库，执行SQL语句，获得结果）
+
+## 	4.2. 面向数据库的API
+
+​	**Java Driver API**，供开发商开发数据库驱动程序用
+
+# 5. JDBC的快速入门程序
+
+**1. 导入jar包**
+
+**2. 注册驱动**
+
+```java
+Class.forName("com.mysql.jdbc.Driver");
+```
+
+**3. 获取连接**
+
+```java
+Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db2", "root", "root");
+```
+
+**4. 获取执行者对象**
+
+```java
+Statement stat = con.createStatement();
+```
+
+**5. 执行sql语句，并接收返回结果**
+
+```java
+String sql = "SELECT * FROM user";
+ResultSet rs = stat.executeQuery(sql);
+```
+
+**6. 处理结果**
+
+```java
+while(rs.next()) {
+    System.out.println(rs.getInt("id") + "\t" + rs.getString("name"));
+}
+```
+
+**7. 释放资源**
+
+```java
+con.close();
+stat.close();
+rs.close();
+```
+
+# 6. JDBC各个功能类解释
+
+## 6.1 DriverManager
+
+​	**DriverManager**：驱动管理对象
+
+​	**注册驱动：**(告诉程序该使用哪一个数据库驱动)
+
+​		static void registerDriver(Driver driver)：注册给定的驱动程序 DriverManager 
+
+​	**写代码常用**：Class.forName("com.mysql.jdbc.Driver");
+
+​	**通过查看源码发现：**在com.mysql.jdbc.Driver类中存在静态代码块
 
 ```
-Java API， 抽象接口，供应用程序开发人员使用（连接数据库，执行SQL语句，获得结果）
+static {
+	try {
+		java.sql.DriverManager.registerDriver(new Driver());
+	} catch (SQLException E) {
+		throw new RuntimeException("Can't register driver!");
+	}
+}
 ```
 
-## 	2. 面向数据库的API
+​	**mysql5之后注册驱动的变化：**
 
-```
-Java Driver API，供开发商开发数据库驱动程序用
-```
+​		mysql5之后的驱动jar包可以省略注册驱动的步骤，
 
-# 5. JDBC程序编写步骤
+​		在jar包中，存在一个java.sql.Driver配置文件，文件中指定了com.mysql.jdbc.Driver
 
-```
-1.加载驱动
-2.获得连接
-3. 获得执行SQL语句的对象
-4. 编写SQL语句
-5. 执行SQL
-6. 遍历结果集
-```
+​	**获取数据库连接：**获取到数据库连接并返回连接对象
+
+​		static Connection getConnection(String url, String user, String password);
+
+​		返回值：Connection数据库连接对象
+
+​		参数
+
+​			url：指定连接的路径。语法：jdbc:mysql://ip地址(域名):端口号/数据库名称
+
+​			user：用户名
+
+​			password：密码
+
+## 6.2 Connection
+
+​	**Connection：**数据库连接对象
+
+​	**获取执行者对象：**
+
+​		**1. 获取普通执行者对象：**Statement createStatement();
+
+​		**2. 获取预编译执行者对象：**PreparedStatement prepareStatement(String sql);
+
+​	**管理事务：**
+
+​		**1. 开启事务：**setAutoCommit(boolean autoCommit);     参数为false，则开启事务
+
+​		**2. 提交事务：**commit();
+
+​		**3. 回滚事务：**rollback();
+
+​	**释放资源：**
+
+​		立即将数据库连接对象释放：void close();
+
+## 6.3 Statement
+
+​	**Statement：**执行sql语句的对象
+
+​		**执行DML语句：**int executeUpdate(String sql);
+
+​			**返回值int：**返回影响的行数。
+
+​			**参数sql：**可以执行insert、update、delete语句。
+
+​		**执行DQL语句：**ResultSet executeQuery(String sql);
+
+​			**返回值ResultSet：**封装查询的结果。
+
+​			**参数sql：**可以执行select语句。
+
+​	**释放资源**
+
+​		立即将执行者对象释放：void close();
+
+## 6.4 ResultSet
+
+​	**ResultSet：**结果集对象
+
+​		**判断结果集中是否还有数据：**boolean next();
+
+​			有数据返回true，并将索引向下移动一行
+
+​			没有数据返回false
+
+​		**获取结果集中的数据：**XXX getXxx("列名");
+
+​			XXX代表数据类型(要获取某列数据，这一列的数据类型)
+
+​			例如：String getString("name");          int getInt("age");
+
+​		**释放资源：**
+
+​			立即将结果集对象释放：void close();
 
 # 6. Driver详解
 
