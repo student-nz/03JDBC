@@ -8,8 +8,6 @@ import java.util.Properties;
 
 /**
  * JDBC的工具类
- * @author jt
- *
  */
 public class JDBCUtils {
 	private static final String driverClassName;

@@ -5,20 +5,13 @@ import java.sql.*;
 import java.util.Properties;
 
 /**
- * 
- * @Description 操作数据库的工具类
- * @author shkstart Email:shkstart@126.com
- * @version
- * @date 上午9:10:02
- *
+ * 操作数据库的工具类
  */
 public class JDBCUtils {
-	
+
+
 	/**
-	 * 
-	 * @Description 获取数据库的连接
-	 * @author shkstart
-	 * @date 上午9:11:23
+	 * 获取数据库的连接
 	 * @return
 	 * @throws Exception
 	 */
@@ -41,11 +34,9 @@ public class JDBCUtils {
 		Connection conn = DriverManager.getConnection(url, user, password);
 		return conn;
 	}
+
 	/**
-	 * 
-	 * @Description 关闭连接和Statement的操作
-	 * @author shkstart
-	 * @date 上午9:12:40
+	 * 关闭连接和Statement的操作
 	 * @param conn
 	 * @param ps
 	 */
@@ -63,11 +54,9 @@ public class JDBCUtils {
 			e.printStackTrace();
 		}
 	}
+
 	/**
-	 * 
-	 * @Description 关闭资源操作
-	 * @author shkstart
-	 * @date 上午10:21:15
+	 * 关闭资源操作
 	 * @param conn
 	 * @param ps
 	 * @param rs
